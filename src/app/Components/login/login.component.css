@@ -1,0 +1,11 @@
+.form-group+.form-group {
+    margin-top: 1rem;
+}
+
+.button-container {
+    display: flex;
+    justify-content: flex-end;
+}
+#registerLink{    
+    justify-content: flex-end;
+}
