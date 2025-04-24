@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { MovieCardComponent } from '../movie-card/movie-card.component';
 
 @Component({
@@ -8,5 +8,5 @@ import { MovieCardComponent } from '../movie-card/movie-card.component';
   styleUrl: './movie-details.component.css'
 })
 export class MovieDetailsComponent {
-
+  @Input({ required: true }) id!: string;
 }

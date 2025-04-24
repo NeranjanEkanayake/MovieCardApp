@@ -1,9 +1,9 @@
 export interface Card{
-    id?: number;
+    id: string;
     title: string;
     description: string;
     image?: string;
     price?: string;
     createdBy?: string;
-    createdAt?: string;
+    createdAt?: Date;
 }

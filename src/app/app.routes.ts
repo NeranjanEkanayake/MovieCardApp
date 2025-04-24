@@ -26,7 +26,7 @@ export const routes: Routes = [
         component:MovieDashboardComponent
     },
     {
-        path:'movieDetails',
+        path:'movieDetails/:id',
         component:MovieDetailsComponent
     },
     {

@@ -6,13 +6,16 @@ import { MovieCardComponent } from './Components/movie-card/movie-card.component
 import { NavbarComponent } from './Components/navbar/navbar.component';
 import {FormsModule} from '@angular/forms';
 import { Router } from 'express';
+import { MovieDetailsComponent } from "./Components/movie-details/movie-details.component";
 
 @Component({
   selector: 'app-root',
-  imports: [NavbarComponent, FormsModule, RouterOutlet],
+  imports: [NavbarComponent, FormsModule, RouterOutlet, MovieDetailsComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
   title = 'MovieCardApp';
+
+
 }
