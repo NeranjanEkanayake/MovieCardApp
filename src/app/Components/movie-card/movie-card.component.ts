@@ -1,32 +1,23 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
-import { RouterLink } from '@angular/router';
-import { MovieDetailsComponent } from '../movie-details/movie-details.component';
+import { Component } from '@angular/core';
 import { DetailsMovie } from '../../../Shared/Data/dummy-data';
-
+import { Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-movie-card',
-  imports: [RouterLink],
+  imports: [CommonModule],
   templateUrl: './movie-card.component.html',
   styleUrl: './movie-card.component.css'
 })
 export class MovieCardComponent {
   detailsMovie = DetailsMovie;
-  selectedCardId = '1card';
 
-  constructor() {
-    // this.detailsMovie == null;
-    // const cardDetails = localStorage.getItem('moviecards');
+  // selectedCardId: string | null = null;
 
-    // if(cardDetails){
-    //   this.detailsMovie = JSON.parse(cardDetails);
-    // }
+  constructor(private router: Router) { }
 
-    console.log('Constructor runs');
-  }
-
-  get selectedCard() {
-    return this.detailsMovie.find((cardDetail) => cardDetail.id === this.selectedCardId)!;
-  }
+  // get selectedCard() {
+  //   return this.detailsMovie.find((cardDetail) => cardDetail.id === this.selectedCardId)!;
+  // }
 
   // ngOnInit(): void{
   //   alert('Application Started');
@@ -35,9 +26,7 @@ export class MovieCardComponent {
   // ngAfterViewInit(): void{
   //   alert('Loading movies completed');
   // }
-
-  onSelectCard(id: string) {
-    this.selectedCardId = id;
-    console.log('Selected card with Id: ' + id);
+  onViewDetails(movieId: string) {
+    this.router.navigate(['/movieDetails', movieId]);
   }
 }

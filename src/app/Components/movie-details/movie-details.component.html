@@ -1,18 +1,27 @@
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-    aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                ...
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Understood</button>
+<div class="container">
+    <div class="row">
+        @if(movie){
+        <div class="col-md-4 p-3">
+            <div class="card w-100 h-100">
+                <button type="submit" class="btn-close" aria-label="Close" routeLink="/movieCard"></button>
+                <img src={{movie.image}} class="card-img-top fixed-img" alt="..." />
+                <div class="card-body">
+                    <h6 class="card-title">{{movie.title}}</h6>
+                    <p class="card-text" style="font-size: small;">{{movie.description}} </p>
+                    @if(movie.price){
+                    <p class="card-text" style="font-size: small;">Price: {{movie.price}} /=</p>
+                    }@else {
+                    <p class="card-text" style="font-size: small;">Price: N/A</p>
+                    }
+                </div>
             </div>
         </div>
+        }@else {
+        <div class="col-md-4 p-3">
+            <div class="card w-100 h-100">
+                <p>Movie not found.</p>
+            </div>
+        </div>
+        }
     </div>
 </div>

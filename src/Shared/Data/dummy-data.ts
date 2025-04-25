@@ -5,7 +5,8 @@ export const DetailsMovie: Card[] = [
     id: "1",
     title: "Movie 1",
     description: "This is the first movie",
-    image: "https://cdn.pixabay.com/photo/2019/04/24/21/55/cinema-4153289_640.jpg"
+    image: "https://cdn.pixabay.com/photo/2019/04/24/21/55/cinema-4153289_640.jpg",
+    price: "450" 
   },
   {
     id: "2",

@@ -7,10 +7,14 @@
                 <img src={{detail.image}} class="card-img-top fixed-img" alt="..." />
                 <div class="card-body">
                     <h6 class="card-title">{{detail.title}}</h6>
-                    <p class="card-text" style="font-size: small;">{{detail.description}}</p>
-                    <button type="button" class="btn btn-primary" data-bs-toggle="movieDetails" data-bs-target="#staticBackdrop" routerLink="movieDetails">View Details</button>
-                    <a routerLink="register" class="btn btn-secondary" style="font-size: small;"
-                        (click)="onSelectCard(detail.id)">View Details</a>
+                    <p class="card-text" style="font-size: small;">{{detail.description}} </p>
+
+                    <button class="btn btn-secondary" (click)="onViewDetails(detail.id)">
+                        View Details
+                    </button>
+
+                    <!-- <a routerLink="/movieDetails" class="btn btn-secondary" style="font-size: small;"
+                        >View Details</a> -->
                     <!-- <a routerLink="['/movieDetails',detail.id]" class="btn btn-primary" style="font-size: small;"
                         (click)="onSelectCard(detail.id)">View Details</a> -->
                 </div>
