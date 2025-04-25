@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { MovieDetailsComponent } from '../movie-details/movie-details.component';
+import { NavbarComponent } from "../navbar/navbar.component";
+import { MovieCardComponent } from "../movie-card/movie-card.component";
 @Component({
   selector: 'app-movie-dashboard',
-  imports: [],
+  imports: [NavbarComponent, MovieCardComponent],
   templateUrl: './movie-dashboard.component.html',
   styleUrl: './movie-dashboard.component.css'
 })

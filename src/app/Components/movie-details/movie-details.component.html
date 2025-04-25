@@ -3,16 +3,21 @@
         @if(movie){
         <div class="col-md-4 p-3">
             <div class="card w-100 h-100">
-                <button type="submit" class="btn-close" aria-label="Close" routeLink="/movieCard"></button>
-                <img src={{movie.image}} class="card-img-top fixed-img" alt="..." />
+                <div class="button-container mb-2 mt-1">
+                    <button class="btn btn-close" type="submit" routerLink="/" aria-label="Close"></button>
+                </div>
                 <div class="card-body">
                     <h6 class="card-title">{{movie.title}}</h6>
+                    <hr/>
+                    <img src={{movie.image}} class="card-img-top fixed-img" alt="..." />
+                    
                     <p class="card-text" style="font-size: small;">{{movie.description}} </p>
                     @if(movie.price){
                     <p class="card-text" style="font-size: small;">Price: {{movie.price}} /=</p>
                     }@else {
                     <p class="card-text" style="font-size: small;">Price: N/A</p>
                     }
+
                 </div>
             </div>
         </div>
@@ -25,3 +30,14 @@
         }
     </div>
 </div>
+<!-- @if(movie){
+<ng-template #content let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title">{{movie.title}}</h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss()"></button>
+    </div>
+    <div class="modal-body">
+        <p>{{movie.description}}</p>
+    </div>
+</ng-template>
+} -->
