@@ -1,2 +1,2 @@
-<app-navbar></app-navbar>
-<app-movie-card></app-movie-card>
+<app-navbar (search)="searchMovie($event)"></app-navbar>
+<app-movie-card [searchTitle]="searchTitle"></app-movie-card>

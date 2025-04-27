@@ -1,8 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
-import { DetailsMovie } from '../../../Shared/Data/dummy-data';
-import { Card } from '../../../Shared/models/card.model';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { Movie, MovieService } from '../../Services/movie.service';
 
 @Component({
   selector: 'app-movie-details',
@@ -11,15 +9,33 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./movie-details.component.css']
 })
 export class MovieDetailsComponent implements OnInit {
-  movie!: Card | undefined;
+  movie = signal<Movie | null>(null);
+  movieId!: string | null;
 
-  constructor(private route: ActivatedRoute,private modalService: NgbModal) { }
+  constructor(
+    private route: ActivatedRoute,
+    private movieService: MovieService
+  ) { }
 
   ngOnInit(): void {
-    const movieId = this.route.snapshot.queryParamMap.get('id');
-    console.log('id in movie details: ', movieId);
-    if (movieId) {
-      this.movie = DetailsMovie.find(m => m.id === movieId);
+    this.movieId = this.route.snapshot.queryParamMap.get('id');
+    console.log('id in movie details: ', this.movieId);
+    if (this.movieId) {
+      this.getMovieDetails(this.movieId);
+    } else {
+      console.error('No Movie Id found');
     }
+  }
+
+  getMovieDetails(id: string): void {
+    this.movieService.getMovieDetails(id).subscribe({
+      next: (movieData) => {
+        console.log('Ftetched movie details: ', movieData);
+        this.movie.set(movieData);
+      },
+      error: (err) => {
+        console.error('Error fetching movie details', err);
+      }
+    });
   }
 }

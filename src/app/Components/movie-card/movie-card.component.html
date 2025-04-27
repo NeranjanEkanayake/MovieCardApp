@@ -1,22 +1,22 @@
 <div class="container">
     <div class="row">
-        @for (detail of detailsMovie; track detail.id) {
+        @for (movie of movies(); track movie.imdbID) {
+          <div class="col-md-3 p-3">
+              <div class="card w-100 h-100">
+                  <img [src]="movie.Poster" class="card-img-top fixed-img" alt="Movie poster" />
+                  <div class="card-body">
+                      <h6 class="card-title">{{ movie.Title }}</h6>
+                      <p class="card-text" style="font-size: small;">{{ movie.Year }}</p>
 
-        <div class="col-md-3 p-3">
-            <div class="card w-100 h-100">
-                <img src={{detail.image}} class="card-img-top fixed-img" alt="..." />
-                <div class="card-body">
-                    <h6 class="card-title">{{detail.title}}</h6>
-                    <p class="card-text" style="font-size: small;">{{detail.description}} </p>
-
-                    <button class="btn btn-secondary" (click)="onViewDetails(detail.id)">
-                        View Details
-                    </button>
-                </div>
-            </div>
-        </div>
-        }@empty {
-        <p>There are no Items to display.</p>
+                      <button class="btn btn-secondary" (click)="onViewDetails(movie.imdbID)">
+                          View Details
+                      </button>
+                  </div>
+              </div>
+          </div>
+        }
+        @empty {
+          <p>There are no Items to display.</p>
         }
     </div>
 </div>

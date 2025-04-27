@@ -8,10 +8,17 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
                 <a class="nav-link" aria-current="page" routerLink="/">Home</a>
-                <a class="nav-link" routerLink="/createMovieCard">Create new</a>                
+                <a class="nav-link" routerLink="/createMovieCard">Create new</a>
             </div>
-            <div class="navbar-nav ms-auto">
+            <!-- <div class="navbar-nav ms-auto">
                 <a class="btn btn-primary" routerLink="/login">Login</a>
+            </div> -->
+            <div class="navbar-nav ms-auto">
+                <form class="d-flex" (submit)="searchMovie($event);">
+                    <input class="form-control me-2" type="search" placeholder="Search movie" name="title"
+                        aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
             </div>
         </div>
     </div>
