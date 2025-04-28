@@ -7,16 +7,17 @@
             </div>
             <div class="movie-details p-3 d-flex flex-column position-relative">
                 <div class="button-container">
-                    <button class="btn btn-close" type="button" routerLink="/" aria-label="Close"></button>
+                    <button class="btn btn-primary" type="button" routerLink="/" aria-label="Close">
+                        <i class="fa fa-close" style="color: red;"></i>Go Back</button>
                 </div>
 
                 <div class="card-body">
-                    <h3 class="card-title">{{movie()?.Title}}</h3>
-                    <hr/>
-                    <h4 class="card-text" style="font-size: small;">Released: {{ movie()?.Year }}</h4>
-                    <h4 class="card-text" style="font-size: small;">Type: {{movie()?.Type}}</h4>
-                    <h4 class="card-text" style="font-size: small;">Genre: {{ movie()?.Genre }}</h4>
-                    <h4 class="card-text" style="font-size: small;">Plot: {{ movie()?.Plot }}</h4>
+                    <h3 class="card-title">{{movie()?.Title ?? '' }}</h3>
+                    <hr />
+                    <h4 class="card-text" style="font-size: small;">Released: {{ movie()?.Year ?? '' }}</h4>
+                    <h4 class="card-text" style="font-size: small;">Type: {{movie()?.Type ?? '' }}</h4>
+                    <h4 class="card-text" style="font-size: small;">Genre: {{ movie()?.Genre ?? '' }}</h4>
+                    <h4 class="card-text" style="font-size: small;">Plot: {{ movie()?.Plot ?? '' }}</h4>
                 </div>
             </div>
         </div>
